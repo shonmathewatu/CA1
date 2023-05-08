@@ -49,7 +49,7 @@ shapiro.test(heart_failure$DEATH_EVENT)
 # p value <0.05, hence not normally distributed
 
 
-# Perform Kruskal-Wallis test
+# Perform Chi-square is a statistical  test
 result <- chisq.test(heart_failure$smoking, heart_failure$DEATH_EVENT)
 print(result)
 # p value >.05, and hence smoking is not related to death.
@@ -85,6 +85,7 @@ plot(heart_failure$serum_creatinine, heart_failure$platelets,
      xlab = "Serum Creatinine", ylab = "Platelets",
      main = "Scatter Plot of Serum Creatinine vs Platelets")
 
+# Perform Shapiro-Wilk test for platelets
 result <- shapiro.test(heart_failure$serum_creatinine)
 print(result)
 #p-value < 2.2e-16, since p value < .05,  normally distributed
@@ -104,6 +105,7 @@ print(result)
 #* Null Hypothesis, H0 : creatinine_phosphokinase is not affected by serum_sodium
 #* Alternate Hypothesis H1 : creatinine_phosphokinase is affected by serum_sodium
 #* Both are continues variables
+#* 
 #* 
 
 
@@ -191,7 +193,7 @@ result <- shapiro.test(heart_failure$serum_creatinine)
 print(result)
 
 
-# Spearman's rank correlation test
+#  wilcox  correlation test
 result <- wilcox.test(heart_failure$ejection_fraction, heart_failure$serum_creatinine)
 
 print(result)
